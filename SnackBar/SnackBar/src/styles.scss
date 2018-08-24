@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.snackbar {
+  background: dimgrey;
+  color: white;
+}
+.form-container {
+  align-content: center;
+  padding: 50px;
+  border: solid white 10px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 30px;
+}
+
+.form-container button{
+  margin: 5px;
+}
+
+.button-container {
+  align-content: center;
+  padding: 50px;
+  border: solid white 10px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 30px;
+}
+
+.button-container button {
+  height: 250px;
+  width: 250px;
+  background-size: cover;
+  box-sizing: border-box;
+  margin-right: 25px;
+  margin-top: 25px;
+  padding: 0;
+  overflow: hidden;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+IICAcwMelLU0sAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=);
+}
+
+.namelabel{
+  background:rgba(0,0,0,0.7);
+  display: block;
+  height: 40px;
+  font-size: xx-large;
+  font-weight: bold;
+  position: relative;
+  padding-top: 5px;
+  top: 90px;
+}
+

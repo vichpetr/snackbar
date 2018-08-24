@@ -1,0 +1,6 @@
+<div *ngIf="avatars" class="button-container">
+      <button *ngFor="let avatar of avatars" mat-raised-button color="primary" routerLink="/snacks/{{avatar.id}}" [ngStyle]="{'background' : 'url(data:image/' + avatar.pictype + ';base64,' + avatar.pic + ')', 'background-size': 'cover'}">
+        <span class="namelabel">{{avatar.name}}</span>
+      </button>
+</div>
+<button mat-raised-button color="secondary" routerLink="/add/">Add</button>
