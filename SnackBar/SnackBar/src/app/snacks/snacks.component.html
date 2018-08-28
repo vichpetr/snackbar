@@ -3,5 +3,5 @@
     <span class="namelabel">{{snack.name}}</span>
   </button>
 </div>
-<button *ngIf="selectedAvatar" mat-raised-button color="secondary" routerLink="/transactions/{{selectedAvatar.id}}" >Transactions</button>
+<button *ngIf="selectedAvatar" mat-raised-button color="secondary" routerLink="/transactions/{{selectedAvatar.entityId}}" >Transactions</button>
 <button mat-raised-button color="secondary" (click)="goBack()" >Cancel</button>

@@ -1,0 +1,7 @@
+{
+  "timestamp": "2018-08-28T06:05:57.183+0000",
+  "path": "/api/snack",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "JSON encoding error: could not initialize proxy [cz.tmobile.cdcp.snackbar.backend.model.Avatar#1] - no Session; nested exception is com.fasterxml.jackson.databind.JsonMappingException: could not initialize proxy [cz.tmobile.cdcp.snackbar.backend.model.Avatar#1] - no Session (through reference chain: java.util.ArrayList[0]->cz.tmobile.cdcp.snackbar.backend.model.Snack[\"owner\"]->cz.tmobile.cdcp.snackbar.backend.model.Avatar_$$_jvst20b_1[\"name\"])"
+}

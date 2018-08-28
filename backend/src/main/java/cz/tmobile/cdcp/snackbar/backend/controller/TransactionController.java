@@ -1,63 +1,54 @@
 package cz.tmobile.cdcp.snackbar.backend.controller;
 
-import cz.tmobile.cdcp.snackbar.backend.model.ExpandedTransaction;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransaction;
 import cz.tmobile.cdcp.snackbar.backend.model.PaymentRequest;
 import cz.tmobile.cdcp.snackbar.backend.model.Search;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.TransactionDto;
 import cz.tmobile.cdcp.snackbar.backend.service.TransactionService;
 import cz.tmobile.cdcp.snackbar.backend.model.Transaction;
+import cz.tmobile.cdcp.snackbar.backend.utils.TransactionUtils;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-
-
-@RestController
 @Slf4j
-
+@RestController
+@RequestMapping(path = "/api/transaction")
 public class TransactionController {
-    TransactionService transactionService;
 
     @Autowired
-    public TransactionController(TransactionService TransactionService){
-        this.transactionService = TransactionService;
+    private TransactionService transactionService;
+
+    @Autowired
+    private TransactionUtils transactionUtils;
+
+    @CrossOrigin
+    @GetMapping(path = "/my")
+    public List<ExpandedTransaction> findTransaction(@RequestHeader("userId") Integer userId) {
+        return transactionService.findTransactions(userId);
     }
 
-    @PostMapping("/api/transaction")
+    @GetMapping
     @CrossOrigin
-    public List<ExpandedTransaction> findTransaction(@RequestBody Search search) {
-        List<ExpandedTransaction> foundTransactions = transactionService.findTransactions(search.id);
-
-        return foundTransactions;
+    public List<TransactionDto> getTransactions() {
+        return transactionService.getTransactions().stream()
+                .map(transactionUtils::toDto)
+                .collect(Collectors.toList());
     }
 
-    @PostMapping("/api/transaction/all")
+    @PostMapping
     @CrossOrigin
-    public List<Transaction> getTransactions() {
-
-        List<Transaction> foundTransactions = transactionService.getTransactions();
-
-        return foundTransactions;
+    public Transaction addTransaction(@RequestBody TransactionDto transaction) {
+        return transactionService.addTransaction(transaction);
     }
 
-    @PostMapping("/api/transaction/add")
     @CrossOrigin
-    public Transaction addTransaction(@RequestBody Transaction transaction) {
-
-        Transaction addedTransaction = transactionService.addTransaction(transaction);
-
-        return addedTransaction;
-    }
-
-    @PostMapping("/api/transaction/pay")
-    @CrossOrigin
+    @PostMapping("/pay")
     public List<ExpandedTransaction> payTransactions(@RequestBody PaymentRequest paymentRequest) {
-
-        List<ExpandedTransaction> foundTransaction = transactionService.payTransactions(paymentRequest.getBuyer(),paymentRequest.getIds());
-
-        return foundTransaction;
+        return transactionService.payTransactions(paymentRequest.getBuyer(),paymentRequest.getIds());
     }
-
-
 }

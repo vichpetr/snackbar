@@ -1,15 +1,17 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Snack } from '../model/snack';
-import { Avatar } from '../model/avatar';
+import {Snack} from '../model/snack';
+import {Avatar} from '../model/avatar';
 
-import { SnackService } from '../service/snack.service';
-import { AvatarService } from '../service/avatar.service';
-import { TransactionService } from '../service/transaction.service';
+import {SnackService} from '../service/snack.service';
+import {AvatarService} from '../service/avatar.service';
+import {TransactionService} from '../service/transaction.service';
 import {MatSnackBar} from "@angular/material";
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { DomSanitizer } from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from "@angular/router";
+import {Link} from "../model/link";
+
 
 @Component({
   selector: 'app-snacks',
@@ -18,8 +20,8 @@ import {Router} from "@angular/router";
 })
 export class SnacksComponent implements OnInit {
 
-  snacks : Snack[];
-  selectedAvatar : Avatar;
+  snacks: Snack[];
+  selectedAvatar: Avatar;
   // avatar: Avatar;
   owner: Avatar;
   cancel_message: string[] = ['Salary not received yet?', 'Nevermind', 'Come on, take one', 'Coward!'];
@@ -44,12 +46,23 @@ export class SnacksComponent implements OnInit {
 
   onSelect(snack: Snack): void {
     this.snackService.selectedSnack = snack;
-    this.placeOrder(this.snackService.selectedSnack.owner);
+
+    // let ownerLink: Link = snack.links.map(link => SnacksComponent.getLinkByRel('owner', link));
+    const link = snack.links.find(f => f.rel === 'owner');
+    this.avatarService.getAvatar(link).then(result => {
+      this.placeOrder(result);
+    });
+  }
+
+  static getLinkByRel(rel: string, link: Link): Link {
+    if (link.rel === rel) {
+      return link;
+    }
   }
 
   getSnacks(): void {
 
-    this.snackService.getSnacks().then(result =>{
+    this.snackService.getSnacks().then(result => {
       this.snackService.snacks = result;
       this.snacks = this.snackService.snacks;
     });
@@ -65,19 +78,16 @@ export class SnacksComponent implements OnInit {
     });
   };
 
-  placeOrder(id: number) {
-    // this.avatarService.findAvatar(id).subscribe(result =>{console.log('owner is ', result);this.owner = result['data'][0]});
-    this.avatarService.findAvatar(id).then(result => {
-      this.owner = result;
-      this.addTransaction(this.avatarService.selectedAvatar.id, this.snackService.selectedSnack.id);
-    });
+  placeOrder(owner: Avatar) {
+    this.owner = owner;
+    this.addTransaction(this.owner, this.avatarService.selectedAvatar.entityId, this.snackService.selectedSnack.entityId);
   }
 
-  static get_random_index(length: number): number{
+  static get_random_index(length: number): number {
     return Math.floor(Math.random() * length);
   }
 
-  static get_random_message(array: string[]): string{
+  static get_random_message(array: string[]): string {
     return array[SnacksComponent.get_random_index(array.length)];
   }
 
@@ -86,11 +96,10 @@ export class SnacksComponent implements OnInit {
     this.location.back();
   }
 
-  addTransaction(buyer: number, snack: number) {
-    this.transactionService.addTransaction(buyer, snack).then( result => {
+  addTransaction(owner: Avatar, buyer: number, snack: number) {
+    this.transactionService.addTransaction(buyer, snack).then(result => {
       console.log('Transaction added. ID: ' + result.id);
-      if (this.snackService.selectedSnack.owner === this.avatarService.selectedAvatar.id)
-      {
+      if (owner.entityId === this.avatarService.selectedAvatar.entityId) {
         this.snackBar.open("You won't get any money back this way " + this.owner.name, 'Ok', {duration: 5000, panelClass: ['snackbar']})
       }
       else {

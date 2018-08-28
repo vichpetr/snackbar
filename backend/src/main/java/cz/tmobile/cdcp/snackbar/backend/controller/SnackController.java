@@ -1,52 +1,60 @@
 package cz.tmobile.cdcp.snackbar.backend.controller;
 
 import cz.tmobile.cdcp.snackbar.backend.model.Search;
-import cz.tmobile.cdcp.snackbar.backend.service.SnackService;
 import cz.tmobile.cdcp.snackbar.backend.model.Snack;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransaction;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.SnackDto;
+import cz.tmobile.cdcp.snackbar.backend.service.SnackService;
+import cz.tmobile.cdcp.snackbar.backend.utils.SnackUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-
-
-@RestController
 @Slf4j
-
+@RestController
+@RequestMapping(path = "/api/snack")
 public class SnackController {
-    SnackService snackService;
 
     @Autowired
-    public SnackController(SnackService SnackService){
-        this.snackService = SnackService;
-    }
+    private SnackService snackService;
 
-    @PostMapping("/api/snack")
+    @Autowired
+    private SnackUtils snackUtils;
+
+    @PostMapping(path = "/search")
     @CrossOrigin
-    public Snack findSnack(@RequestBody Search search) {
-        Snack foundSnack = snackService.findSnack(search.id);
-
-        return foundSnack;
+    public SnackDto findSnack(@RequestBody Search search) {
+        Snack snack = snackService.findSnack(search.id);
+        return snackUtils.toDto(snack);
     }
 
-    @PostMapping("/api/snack/all")
+    @GetMapping(path = "/{id}")
+    public SnackDto getSnack(@PathVariable("id") Integer id){
+        Snack snack = this.snackService.findSnack(id);
+        return snackUtils.toDto(snack);
+    }
+
+    @GetMapping
     @CrossOrigin
-    public List<Snack> getSnacks() {
-
-        List<Snack> foundSnacks = snackService.getSnacks();
-
-        return foundSnacks;
+    public List<SnackDto> getSnacks() {
+        return snackService.getSnacks().stream()
+                .map(snackUtils::toDto)
+                .collect(Collectors.toList());
     }
 
-    @PostMapping("/api/snack/add")
+    @PostMapping
     @CrossOrigin
-    public Snack addSnack(@RequestBody Snack snack) {
-
-        Snack addedSnack = snackService.addSnack(snack);
-
-        return addedSnack;
+    public SnackDto addSnack(@RequestBody SnackDto dto, @RequestHeader("owner") Integer ownerId) {
+        Snack snack = snackService.addSnack(dto, ownerId);
+        return snackUtils.toDto(snack);
     }
 
+    @GetMapping(path = "/{id}/transactions")
+    public List<ExpandedTransaction> getTransactionsForSnack(@PathVariable("id") Integer id) {
+        return this.snackService.findAllTransactions(id);
+    }
 
 }

@@ -1,0 +1,58 @@
+GET http://localhost:8080/api/snack
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-08-28T080557.500.json
+
+###
+
+POST http://localhost:8080/api/snack
+Accept: */*
+Cache-Control: no-cache
+
+{
+"name": "name",
+"price": "10",
+"owner": "1",
+"pictype": "png",
+"pic": "fksdf;jlskaf"
+}
+
+<> 2018-08-28T080515.400.json
+
+###
+
+POST http://localhost:8080/api/snack
+Accept: */*
+Cache-Control: no-cache
+
+{
+name: 'name',
+price: 10,
+owner: 1,
+pictype: png,
+pic: 'fksdf;jlskaf'
+}
+
+<> 2018-08-28T080421.400.json
+
+###
+
+POST http://localhost:8080/api/snack
+Accept: */*
+Cache-Control: no-cache
+
+{'name':'jmeno'}
+
+<> 2018-08-28T080249.400.json
+
+###
+
+POST http://localhost:8080/api/snack
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-08-28T080201.400.json
+
+###
+

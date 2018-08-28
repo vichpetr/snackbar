@@ -34,9 +34,9 @@ export class TransactionsComponent implements OnInit {
     private location: Location,
     public snackBar: MatSnackBar,
   ) {
-    this.avatarService.findAvatar(+this.route.snapshot.paramMap.get('id')).then(result => {
+    this.avatarService.findAvatar(this.route.snapshot.paramMap.get('id')).then(result => {
       this.avatar = result;
-      this.transactionService.getTransactions(this.avatar.id).then(result => {
+      this.transactionService.getTransactions(this.avatar.entityId).then(result => {
         this.transactionService.transactions = result;
         this.loadTransactions();
       });
@@ -92,7 +92,7 @@ export class TransactionsComponent implements OnInit {
       }
     });
 
-    this.transactionService.payTransactions(this.avatar.id, ids).then(result => {
+    this.transactionService.payTransactions(this.avatar.entityId, ids).then(result => {
       this.transactionService.transactions = result;
       this.snackBar.open("You will pay for " + ids.length + " transactions", 'Ok', {duration: 5000, panelClass: ['snackbar']});
       this.selection.clear();

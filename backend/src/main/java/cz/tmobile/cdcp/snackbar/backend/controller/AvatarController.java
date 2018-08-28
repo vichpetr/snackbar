@@ -1,53 +1,50 @@
 package cz.tmobile.cdcp.snackbar.backend.controller;
 
 import cz.tmobile.cdcp.snackbar.backend.model.Search;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.AvatartDto;
 import cz.tmobile.cdcp.snackbar.backend.service.AvatarService;
 import cz.tmobile.cdcp.snackbar.backend.model.Avatar;
+import cz.tmobile.cdcp.snackbar.backend.utils.AvatarUtils;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-
-@RestController
 @Slf4j
-
+@RestController
+@RequestMapping(path = "/api/avatar")
 public class AvatarController {
-    AvatarService avatarService;
 
     @Autowired
-    public AvatarController(AvatarService avatarService){
-        this.avatarService = avatarService;
-    }
+    private AvatarService avatarService;
 
-    @PostMapping("/api/avatar")
+    @Autowired
+    private AvatarUtils avatarUtils;
+
+    @PostMapping("/search")
     @CrossOrigin
     public Avatar findAvatar(@RequestBody Search search) {
-        Avatar foundAvatar = avatarService.findAvatar(search.id);
-
-        return foundAvatar;
+        return avatarService.findAvatar(search.id);
     }
 
-    @PostMapping("/api/avatar/all")
+    @GetMapping
     @CrossOrigin
-    public List<Avatar> getAvatars(@RequestBody Search search) {
-
-        List<Avatar> foundAvatars = avatarService.getAvatars();
-
-        return foundAvatars;
+    public List<Avatar> getAvatars() {
+        return avatarService.getAvatars();
     }
 
-    @PostMapping("/api/avatar/add")
+    @PostMapping
     @CrossOrigin
     public Avatar addAvatar(@RequestBody Avatar avatar) {
-
-        Avatar addedAvatar = avatarService.addAvatar(avatar);
-
-        return addedAvatar;
+        return avatarService.addAvatar(avatar);
     }
 
-
-
+    @CrossOrigin
+    @GetMapping(path = "/{id}")
+    public AvatartDto getAvatar(@PathVariable("id") Integer id) {
+        Avatar entity = this.avatarService.findAvatar(id);
+        return avatarUtils.toDto(entity);
+    }
 }
