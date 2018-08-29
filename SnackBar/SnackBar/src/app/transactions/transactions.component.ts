@@ -34,7 +34,7 @@ export class TransactionsComponent implements OnInit {
     private location: Location,
     public snackBar: MatSnackBar,
   ) {
-    this.avatarService.findAvatar(this.route.snapshot.paramMap.get('id')).then(result => {
+    this.avatarService.findAvatar(this.avatarService.selectedAvatar.entityId).then(result => {
       this.avatar = result;
       this.transactionService.getTransactions(this.avatar.entityId).then(result => {
         this.transactionService.transactions = result;

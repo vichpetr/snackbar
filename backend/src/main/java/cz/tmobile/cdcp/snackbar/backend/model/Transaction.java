@@ -29,5 +29,11 @@ public class Transaction {
     @JoinColumn(name = "snack")
     private Snack snack;
 
+    @Column(name = "transaction_date")
     private LocalDateTime transactionDate;
+
+    @PrePersist
+    private void prePersist(){
+        this.transactionDate = LocalDateTime.now();
+    }
 }

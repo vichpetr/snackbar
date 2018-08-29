@@ -42,8 +42,9 @@ public class TransactionController {
 
     @PostMapping
     @CrossOrigin
-    public Transaction addTransaction(@RequestBody TransactionDto transaction) {
-        return transactionService.addTransaction(transaction);
+    public TransactionDto addTransaction(@RequestBody TransactionDto dto) {
+        Transaction transaction = transactionService.addTransaction(dto);
+        return transactionUtils.toDto(transaction);
     }
 
     @CrossOrigin

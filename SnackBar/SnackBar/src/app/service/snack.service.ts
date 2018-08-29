@@ -25,9 +25,9 @@ export class SnackService {
   }
 
   addSnack(name: string, price: number, owner: number, pictype: string, pic: string) {
-    const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8'});
+    const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8', 'owner': owner.toString()});
     const url: String = 'http://localhost:8080/api/snack';
-    return this.http.post<Snack>(url.toString(),{name: name, price: price, owner: owner, pictype: pictype, pic: pic}, {headers: httpHeaders}).toPromise();
+    return this.http.post<Snack>(url.toString(),{name: name, price: price, pictype: pictype, pic: pic}, {headers: httpHeaders}).toPromise();
   }
 
 }

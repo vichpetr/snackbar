@@ -32,6 +32,8 @@ public class TransactionUtils implements IConvertUtils<TransactionDto, Transacti
                 .entityId(entity.getId())
                 .paid(entity.isPaid())
                 .transactionDate(entity.getTransactionDate())
+                .buyerId(entity.getBuyer().getId())
+                .snackId(entity.getSnack().getId())
                 .build();
 
         Link buyer = linkTo(TransactionController.class).slash(entity.getBuyer().getId()).withRel("buyer");

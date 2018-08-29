@@ -98,12 +98,15 @@ export class SnacksComponent implements OnInit {
 
   addTransaction(owner: Avatar, buyer: number, snack: number) {
     this.transactionService.addTransaction(buyer, snack).then(result => {
-      console.log('Transaction added. ID: ' + result.id);
       if (owner.entityId === this.avatarService.selectedAvatar.entityId) {
         this.snackBar.open("You won't get any money back this way " + this.owner.name, 'Ok', {duration: 5000, panelClass: ['snackbar']})
       }
       else {
-        this.snackBar.open(this.avatarService.selectedAvatar.name + " was charged " + this.snackService.selectedSnack.price + " money units for " + this.snackService.selectedSnack.name + " on behalf of " + this.owner.name, 'Ok', {
+        console.log('this.avatarService.selectedAvatar.name', this.avatarService.selectedAvatar.name);
+        console.log('this.snackService.selectedSnack.price', this.snackService.selectedSnack.price);
+        console.log('this.snackService.selectedSnack.name', this.snackService.selectedSnack.name);
+        console.log('this.owner.name', this.owner.name);
+        this.snackBar.open(this.avatarService.selectedAvatar.name + " was charged " + this.snackService.selectedSnack.price + " money units for " + this.snackService.selectedSnack.name + " on behalf of " + owner.name, 'Ok', {
           duration: 5000,
           panelClass: ['snackbar']
         })

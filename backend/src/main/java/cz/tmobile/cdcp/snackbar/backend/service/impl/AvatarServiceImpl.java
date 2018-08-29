@@ -29,7 +29,9 @@ public class AvatarServiceImpl implements AvatarService {
     }
 
     @Modifying
-    public Avatar addAvatar(Avatar avatar) {return avatarRepository.save(avatar); }
+    public Avatar addAvatar(Avatar avatar) {
+        return avatarRepository.save(avatar);
+    }
 
 
 }

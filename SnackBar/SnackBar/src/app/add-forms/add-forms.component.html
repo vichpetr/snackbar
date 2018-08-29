@@ -1,42 +1,32 @@
 <div class="form-container">
   <h2>Add Avatar</h2>
-<form [formGroup]="avatarform.getForm()">
-  <mat-form-field>
-    <input matInput placeholder="Name" #Name formControlName="name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Email" #Email formControlName="email">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Pictype" #PicType formControlName="pictype">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Pic" #Pic formControlName="pic">
-  </mat-form-field>
-   <button mat-raised-button (click)="addAvatar()">OK</button>
-</form>
+  <form [formGroup]="avatarform.getForm()">
+    <mat-form-field>
+      <input matInput placeholder="Name" #Name formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" #Email formControlName="email">
+    </mat-form-field>
+    <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)"/>
+    <button mat-raised-button (click)="addAvatar()">OK</button>
+  </form>
 </div>
 <div class="form-container">
   <h2>Add Snack</h2>
-<form *ngIf="avatars" [formGroup]="snackform.getForm()">
-  <mat-form-field>
-    <input matInput placeholder="Name" #Name formControlName="name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Price" #Price formControlName="price">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select placeholder="Owner" #Owner formControlName="owner">
-      <mat-option *ngFor="let avatar of avatars" [value]="avatar.id">{{avatar.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Pictype" #PicType formControlName="pictype">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Pic" #Pic formControlName="pic">
-  </mat-form-field>
-  <button mat-raised-button (click)="addSnack()">OK</button>
-</form>
+  <form *ngIf="avatars" [formGroup]="snackform.getForm()">
+    <mat-form-field>
+      <input matInput placeholder="Name" #Name formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" #Price formControlName="price">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Owner" #Owner formControlName="owner">
+        <mat-option *ngFor="let avatar of avatars" [value]="avatar.id" [ngStyle]="{'background' : 'url(' + avatar.pic + ')', 'background-size': 'contain', 'background-repeat': 'no-repeat', 'background-position-x': 'right'}" >{{avatar.name}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)"/>
+    <button mat-raised-button (click)="addSnack()">OK</button>
+  </form>
 </div>
 <button mat-raised-button routerLink="/">Go Back</button>
