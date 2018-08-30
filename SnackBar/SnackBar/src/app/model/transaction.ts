@@ -14,6 +14,6 @@ declare module TRANSACTION {
     snack: string;
     owner: string;
     price: number;
-    transaction_date: Date;
+    transactionDate: Date;
   }
 }

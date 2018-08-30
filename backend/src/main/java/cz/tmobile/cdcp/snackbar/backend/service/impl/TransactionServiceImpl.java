@@ -17,9 +17,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -38,50 +36,55 @@ public class TransactionServiceImpl implements TransactionService {
     private SendMailService mailService;
 
     @Override
-    public List<ExpandedTransaction> findTransactions(Integer id) {
+    public List<ExpandedTransaction> findTransactions(Integer id, boolean paid) {
         Avatar avatar = this.avatarService.findAvatar(id);
-        List<Transaction> transactions = findTransactionsByBuyer(avatar);
+        List<Transaction> transactions;
+        if (paid) {
+            transactions = findTransactionsByBuyer(avatar);
+        } else {
+            transactions = this.transactionRepository.findByBuyerAndPaid(avatar, false);
+        }
         return transactions.stream()
                 .map(ExpandedTransaction::new)
                 .collect(Collectors.toList());
     }
 
     @Modifying
-    public List<ExpandedTransaction> payTransactions(Integer buyer, List<Integer> ids) {
-        List<Transaction> paidTransactions = new ArrayList<>();
+    public List<ExpandedTransaction> payTransactions(Integer buyerId, List<Integer> ids, boolean paid) {
+        Map<Avatar, List<Transaction>> paidTransactions = new HashMap<>();
+        Avatar buyer = this.avatarService.findAvatar(buyerId);
         for (Integer id : ids) {
             Transaction transaction = transactionRepository.findTransactionById(id);
-            if (!transaction.isPaid() && transaction.getBuyer().getId().equals(buyer)) {
+            if (!transaction.isPaid() && transaction.getBuyer().equals(buyer)) {
                 transaction.setPaid(true);
                 Transaction save = transactionRepository.save(transaction);
-                paidTransactions.add(save);
+
+                Avatar owner = save.getSnack().getOwner();
+                if (!owner.equals(buyer)) {
+                    List<Transaction> list;
+                    if (paidTransactions.containsKey(owner)) {
+                        list = paidTransactions.get(owner);
+                    } else {
+                        list = new ArrayList<>();
+                    }
+                    list.add(save);
+                    paidTransactions.put(owner, list);
+                }
             }
         }
 
         if (!paidTransactions.isEmpty()) {
-            this.prepareAndSendEmail(paidTransactions);
+            this.prepareAndSendEmail(buyer, paidTransactions);
         }
 
-        return this.findTransactions(buyer);
+        return this.findTransactions(buyerId, paid);
     }
 
-    private void prepareAndSendEmail(List<Transaction> transactions) {
-        Set<Avatar> recipients = transactions.stream()
-                .map(Transaction::getBuyer)
-                .collect(Collectors.toSet());
+    private void prepareAndSendEmail(Avatar buyer, Map<Avatar, List<Transaction>> transactionMap) {
 
-        if (recipients.size() > 1) {
-            log.error("More than one recipient to send invoice.");
-            throw new RuntimeException("More than one recipient to send invoice.");
-        }
-
-        Avatar avatar = recipients.stream()
-                .findAny()
-                .orElseThrow(() -> new RuntimeException("No available avatar"));
-
-        Path pdf = pdfService.createPdf(transactions, avatar);
+        Path pdf = pdfService.createPdf(transactionMap, buyer);
         log.info("pdfFileName is {}", pdf.getFileName());
-        mailService.sendMail(avatar, pdf, transactions);
+        mailService.sendMail(buyer, pdf, transactionMap);
     }
 
     @Override

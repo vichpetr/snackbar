@@ -10,4 +10,5 @@ import java.util.List;
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
     Transaction findTransactionById(Integer id);
     List<Transaction> findByBuyer(Avatar avatar);
+    List<Transaction> findByBuyerAndPaid(Avatar avatar, boolean paid);
 }

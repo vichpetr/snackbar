@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 @Injectable({
@@ -11,11 +9,12 @@ export class TransactionService {
 
   transactions: TRANSACTION.ExpandedTransaction[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getTransactions(id: number): Promise<TRANSACTION.ExpandedTransaction[]>{
+  getTransactions(id: number, paidVisible: boolean): Promise<TRANSACTION.ExpandedTransaction[]> {
     const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8', 'userId': id.toString()});
-    const url: String = 'http://localhost:8080/api/transaction/my';
+    const url: String = 'http://localhost:8080/api/transaction/my?paid=' + paidVisible;
     return this.http.get<TRANSACTION.ExpandedTransaction[]>(url.toString(), {headers: httpHeaders}).toPromise();
   }
 
@@ -24,12 +23,12 @@ export class TransactionService {
     const url: String = 'http://localhost:8080/api/transaction';
     console.log('buyer', buyer);
     console.log('snack', snack);
-    return this.http.post<TRANSACTION.Transaction>(url.toString(),{buyerId: buyer, snackId: snack}, {headers: httpHeaders}).toPromise();
+    return this.http.post<TRANSACTION.Transaction>(url.toString(), {buyerId: buyer, snackId: snack}, {headers: httpHeaders}).toPromise();
   }
 
-  payTransactions(buyer: number, ids: number[]): Promise<TRANSACTION.ExpandedTransaction[]>{
+  payTransactions(buyer: number, ids: number[]): Promise<TRANSACTION.ExpandedTransaction[]> {
     const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8'});
     const url: String = 'http://localhost:8080/api/transaction/pay';
-    return this.http.post<TRANSACTION.ExpandedTransaction[]>(url.toString(),{buyer, ids}, {headers: httpHeaders}).toPromise();
+    return this.http.post<TRANSACTION.ExpandedTransaction[]>(url.toString(), {buyer, ids}, {headers: httpHeaders}).toPromise();
   }
 }

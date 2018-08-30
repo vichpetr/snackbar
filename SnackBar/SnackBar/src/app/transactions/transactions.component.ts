@@ -22,6 +22,7 @@ export class TransactionsComponent implements OnInit {
   displayedColumns: string[] = ['select', 'id', 'snack', 'owner', 'price', 'time'];
   dataSource: MatTableDataSource<TRANSACTION.ExpandedTransaction>;
   selection = new SelectionModel<TRANSACTION.ExpandedTransaction>(true, []);
+  paidVisible: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -36,15 +37,23 @@ export class TransactionsComponent implements OnInit {
   ) {
     this.avatarService.findAvatar(this.avatarService.selectedAvatar.entityId).then(result => {
       this.avatar = result;
-      this.transactionService.getTransactions(this.avatar.entityId).then(result => {
-        this.transactionService.transactions = result;
-        this.loadTransactions();
-      });
+      this.reloadTransactions();
+    });
+  }
+
+  private reloadTransactions() {
+    this.transactionService.getTransactions(this.avatar.entityId, this.paidVisible).then(result => {
+      this.transactionService.transactions = result;
+      this.loadTransactions();
     });
   }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource(this.transactionService.transactions);
+  }
+
+  changePaymentVisible(){
+    this.reloadTransactions();
   }
 
   loadTransactions(){
@@ -53,7 +62,7 @@ export class TransactionsComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {
-        case 'time': return new Date(item.transaction_date);
+        case 'time': return new Date(item.transactionDate);
         default: return item[property];
       }
     };

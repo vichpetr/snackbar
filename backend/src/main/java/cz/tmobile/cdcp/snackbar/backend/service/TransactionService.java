@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface TransactionService {
 
-    List<ExpandedTransaction> findTransactions(Integer id);
-    List<ExpandedTransaction> payTransactions(Integer buyer, List<Integer> ids);
+    List<ExpandedTransaction> findTransactions(Integer id, boolean paid);
+    List<ExpandedTransaction> payTransactions(Integer buyer, List<Integer> ids, boolean paid);
     List<Transaction> findTransactionsByBuyer(Avatar id);
     List<Transaction> getTransactions();
     Transaction addTransaction(TransactionDto transaction);

@@ -22,7 +22,9 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -40,7 +42,7 @@ public class SendMailServiceImpl implements SendMailService {
     private String fromEmail;
 
     @Override
-    public boolean sendMail(Avatar avatar, Path attachment, List<Transaction> transactionList) {
+    public boolean sendMail(Avatar avatar, Path attachment, Map<Avatar, List<Transaction>> transactionMap) {
 
         String subject = "E-mail notification from SnackBar application - send invoice";
 
@@ -49,7 +51,7 @@ public class SendMailServiceImpl implements SendMailService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo(avatar.getEmail());
-            helper.setText(prepareMessageFromDto(avatar, subject, transactionList), true);
+            helper.setText(prepareMessageFromDto(avatar, subject, transactionMap), true);
             helper.setFrom(new InternetAddress(fromEmail));
             helper.setSubject(subject);
             helper.addAttachment(attachment.getFileName().toString(), attachment.toFile());
@@ -65,12 +67,21 @@ public class SendMailServiceImpl implements SendMailService {
         return false;
     }
 
-    private String prepareMessageFromDto(Avatar avatar, String subject, List<Transaction> transactionList) {
-        Integer totalPrice = transactionList.stream().map(Transaction::getSnack).mapToInt(Snack::getPrice).sum();
+    private String prepareMessageFromDto(Avatar avatar, String subject, Map<Avatar, List<Transaction>> transactionMap) {
+        Integer totalPrice = 0;
+        Map<String, Integer> priceMap = new HashMap<>();
+        for(Map.Entry<Avatar, List<Transaction>> entry : transactionMap.entrySet()){
+            Integer totalPricePerAvatar = entry.getValue().stream()
+                    .map(Transaction::getSnack)
+                    .mapToInt(Snack::getPrice).sum();
+            priceMap.put(entry.getKey().getName(), totalPricePerAvatar);
+            totalPrice += totalPricePerAvatar;
+        }
 
         final Context ctx = new Context();
         ctx.setVariable("subject", subject);
         ctx.setVariable("userName", avatar.getName());
+        ctx.setVariable("priceMap", priceMap);
         ctx.setVariable("totalPrice", totalPrice);
 
         return this.templateEngine.process("mailTemplate.html", ctx);

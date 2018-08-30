@@ -28,8 +28,8 @@ public class TransactionController {
 
     @CrossOrigin
     @GetMapping(path = "/my")
-    public List<ExpandedTransaction> findTransaction(@RequestHeader("userId") Integer userId) {
-        return transactionService.findTransactions(userId);
+    public List<ExpandedTransaction> findTransaction(@RequestHeader("userId") Integer userId, @RequestParam(value = "paid", defaultValue = "false") boolean paid) {
+        return transactionService.findTransactions(userId, paid);
     }
 
     @GetMapping
@@ -49,7 +49,7 @@ public class TransactionController {
 
     @CrossOrigin
     @PostMapping("/pay")
-    public List<ExpandedTransaction> payTransactions(@RequestBody PaymentRequest paymentRequest) {
-        return transactionService.payTransactions(paymentRequest.getBuyer(),paymentRequest.getIds());
+    public List<ExpandedTransaction> payTransactions(@RequestBody PaymentRequest paymentRequest, @RequestParam(value = "paid", defaultValue = "false") boolean paid) {
+        return transactionService.payTransactions(paymentRequest.getBuyer(), paymentRequest.getIds(), paid);
     }
 }
