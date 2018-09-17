@@ -1,0 +1,7 @@
+{
+  "timestamp": "2018-08-28T06:02:01.624+0000",
+  "path": "/api/snack",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Request body is missing: public cz.tmobile.cdcp.snackbar.backend.model.Snack cz.tmobile.cdcp.snackbar.backend.controller.SnackController.addSnack(cz.tmobile.cdcp.snackbar.backend.model.Snack)"
+}

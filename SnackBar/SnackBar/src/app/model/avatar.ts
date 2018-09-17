@@ -1,5 +1,5 @@
 export interface Avatar {
-  id: number;
+  entityId: number;
   name: string;
   email: string;
   pic: string;

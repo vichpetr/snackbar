@@ -1,13 +1,14 @@
 package cz.tmobile.cdcp.snackbar.backend.repository;
 
+import cz.tmobile.cdcp.snackbar.backend.model.Avatar;
 import cz.tmobile.cdcp.snackbar.backend.model.Transaction;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface TransactionRepository extends CrudRepository<Transaction, Integer> {
+public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
     Transaction findTransactionById(Integer id);
-    List<Transaction> findTransactionsByBuyer(Integer id);
-    List<Transaction> findAll();
-
+    List<Transaction> findByBuyer(Avatar avatar);
+    List<Transaction> findByBuyerAndPaid(Avatar avatar, boolean paid);
 }

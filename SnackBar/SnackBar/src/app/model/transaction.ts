@@ -1,11 +1,11 @@
 declare module TRANSACTION {
 
   export interface Transaction {
-    id: number;
+    entityId: number;
     paid: boolean;
-    buyer: number;
-    snack: number;
-    transaction_date: Date;
+    buyerId: number;
+    snackId: number;
+    transactionDate: Date;
   }
 
   export interface ExpandedTransaction {
@@ -14,6 +14,6 @@ declare module TRANSACTION {
     snack: string;
     owner: string;
     price: number;
-    transaction_date: Date;
+    transactionDate: Date;
   }
 }

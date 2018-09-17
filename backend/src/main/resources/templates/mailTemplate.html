@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:remove="all" th:text="${subject}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <h4>Hi <th:block th:text="${userName}">username</th:block>,</h4>
+    <p>Invoice message from Snackbar application</p>
+
+    <p>We send you a invoice of your order.</p>
+    <th:block th:each="priceEntry : ${priceMap.entrySet()}">
+        <p>Payment for <th:block th:text="${priceEntry.getKey()}">avatar name</th:block> is <th:block th:text="${priceEntry.getValue()}">price</th:block></p>
+    </th:block>
+
+    <p>Total price is <th:block th:text="${totalPrice}">total price</th:block></p>
+</body>
+</html>

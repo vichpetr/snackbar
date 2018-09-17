@@ -6,6 +6,7 @@ import { AvatarService } from '../service/avatar.service';
 import { SnackService } from '../service/snack.service';
 
 import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+import {UploadFile} from "../model/upload-file";
 
 @Component({
   selector: 'app-add-forms',
@@ -36,8 +37,7 @@ export class AddFormsComponent implements OnInit {
 
   addAvatar(){
     const params: Avatar = this.avatarform.getData();
-    this.avatarService.addAvatar(params.name.toString(), params.email.toString(), params.pictype.toString(),params.pic.toString()).then(result => {
-      alert("name " + params.name.toString());
+    this.avatarService.addAvatar(params.name.toString(), params.email.toString(), this.file.imageType,this.file.base64Image).then(result => {
       this.avatarService.getAvatars().then(result => {
         this.avatarService.avatars = result;
         this.avatars = this.avatarService.avatars;
@@ -47,8 +47,7 @@ export class AddFormsComponent implements OnInit {
 
   addSnack(){
     const params: Snack = this.snackform.getData();
-    this.snackService.addSnack(params.name.toString(), params.price, params.owner, params.pictype.toString(), params.pic.toString()).then(result => {
-      alert("name " + params.name.toString());
+    this.snackService.addSnack(params.name.toString(), params.price, params.owner, this.file.imageType,this.file.base64Image).then(result => {
       this.snackService.getSnacks().then(result =>{
         this.snackService.snacks = result;
       });
@@ -58,18 +57,33 @@ export class AddFormsComponent implements OnInit {
   setForm(){
     this.avatarform = new ValidationManager({
       'name': 'required|alphaNumSpace',
-      'email': 'required|email',
-      'pictype': 'alpha|maxLength:3',
-      'pic': 'pattern:[A-Za-z0-9.+/=]*'
+      'email': 'required|email'
     });
     this.snackform = new ValidationManager({
         'name': 'required|alphaNumSpace',
         'price': 'required|number',
-        'owner': 'required|number',
-        'pictype': 'alpha|maxLength:3',
-        'pic': 'pattern:[A-Za-z0-9.+/=]*'
+        'owner': 'required|number'
     });
    }
+
+  private file: UploadFile = new UploadFile();
+
+  handleInputChange(e) {
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var pattern = /image-*/;
+    var reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    this.file.imageType = file.type;
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.file.base64Image = reader.result;
+  }
 
 
 }
