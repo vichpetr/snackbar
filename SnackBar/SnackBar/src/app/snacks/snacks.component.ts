@@ -45,9 +45,11 @@ export class SnacksComponent implements OnInit {
   }
 
   onSelect(snack: Snack): void {
+    if(snack.count <= 0){
+      return;
+    }
     this.snackService.selectedSnack = snack;
 
-    // let ownerLink: Link = snack.links.map(link => SnacksComponent.getLinkByRel('owner', link));
     const link = snack.links.find(f => f.rel === 'owner');
     this.avatarService.getAvatar(link).then(result => {
       this.placeOrder(result);
@@ -102,10 +104,6 @@ export class SnacksComponent implements OnInit {
         this.snackBar.open("You won't get any money back this way " + this.owner.name, 'Ok', {duration: 5000, panelClass: ['snackbar']})
       }
       else {
-        console.log('this.avatarService.selectedAvatar.name', this.avatarService.selectedAvatar.name);
-        console.log('this.snackService.selectedSnack.price', this.snackService.selectedSnack.price);
-        console.log('this.snackService.selectedSnack.name', this.snackService.selectedSnack.name);
-        console.log('this.owner.name', this.owner.name);
         this.snackBar.open(this.avatarService.selectedAvatar.name + " was charged " + this.snackService.selectedSnack.price + " money units for " + this.snackService.selectedSnack.name + " on behalf of " + owner.name, 'Ok', {
           duration: 5000,
           panelClass: ['snackbar']

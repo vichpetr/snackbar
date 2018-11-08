@@ -9,5 +9,5 @@ import java.util.Map;
 
 public interface SendMailService {
 
-    boolean sendMail(Avatar avatar, Path attachment, Map<Avatar, List<Transaction>> transactionMap);
+    boolean sendMail(Avatar avatar, List<Path> attachment, Map<Avatar, List<Transaction>> transactionMap);
 }

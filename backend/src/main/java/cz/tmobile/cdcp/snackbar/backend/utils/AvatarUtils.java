@@ -21,7 +21,6 @@ public class AvatarUtils implements IConvertUtils<AvatartDto, Avatar> {
                 .entityId(entity.getId())
                 .name(entity.getName())
                 .email(entity.getEmail())
-                .pictype(entity.getPictype())
                 .pic(entity.getPic())
                 .build();
 
@@ -37,7 +36,6 @@ public class AvatarUtils implements IConvertUtils<AvatartDto, Avatar> {
         entity.setEmail(dto.getEmail());
         entity.setName(dto.getName());
         entity.setPic(dto.getPic());
-        entity.setPictype(dto.getPictype());
         return entity;
     }
 }

@@ -6,6 +6,7 @@ export interface Snack {
   pic: string;
   pictype: string;
   price: number;
+  count: number;
   owner: number;
 
   links: Link[];

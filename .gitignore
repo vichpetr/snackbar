@@ -1,4 +1,4 @@
 SnackBar/SnackBar/pics/
 **/out/*
-**/.idea/*
-**/**/.idea/*
+**/.idea/
+**/node_modules/

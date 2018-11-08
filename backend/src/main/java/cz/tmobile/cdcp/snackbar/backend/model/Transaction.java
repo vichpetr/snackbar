@@ -1,39 +1,36 @@
 package cz.tmobile.cdcp.snackbar.backend.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
-@Table
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "TRANSACTIONS")
 public class Transaction {
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "PAID")
     private boolean paid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "buyer")
+    @JoinColumn(name = "BUYER_ID")
     private Avatar buyer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "snack")
+    @JoinColumn(name = "SNACK_ID")
     private Snack snack;
 
-    @Column(name = "transaction_date")
+    @Column(name = "TRANSACTION_DATE")
     private LocalDateTime transactionDate;
 
     @PrePersist
-    private void prePersist(){
+    private void prePersist() {
         this.transactionDate = LocalDateTime.now();
     }
 }

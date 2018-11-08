@@ -5,7 +5,6 @@ import cz.tmobile.cdcp.snackbar.backend.model.Avatar;
 import cz.tmobile.cdcp.snackbar.backend.model.Snack;
 import cz.tmobile.cdcp.snackbar.backend.model.Transaction;
 import cz.tmobile.cdcp.snackbar.backend.service.SendMailService;
-import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +41,7 @@ public class SendMailServiceImpl implements SendMailService {
     private String fromEmail;
 
     @Override
-    public boolean sendMail(Avatar avatar, Path attachment, Map<Avatar, List<Transaction>> transactionMap) {
+    public boolean sendMail(Avatar avatar, List<Path> attachments, Map<Avatar, List<Transaction>> transactionMap) {
 
         String subject = "E-mail notification from SnackBar application - send invoice";
 
@@ -54,7 +53,9 @@ public class SendMailServiceImpl implements SendMailService {
             helper.setText(prepareMessageFromDto(avatar, subject, transactionMap), true);
             helper.setFrom(new InternetAddress(fromEmail));
             helper.setSubject(subject);
-            helper.addAttachment(attachment.getFileName().toString(), attachment.toFile());
+            for (Path attachment : attachments){
+                helper.addAttachment(attachment.getFileName().toString(), attachment.toFile());
+            }
             log.debug("before send email");
             sender.send(message);
             log.info("Email with subject {} was send.", subject);

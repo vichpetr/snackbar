@@ -2,54 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04b5333-06d5-4550-8541-c08f8b2dffe5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SnackBar/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/e2e/tsconfig.e2e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/proxy.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/model/avatar.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/model/link.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/model/snack.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/model/transaction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/app/model/upload-file.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/browserslist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/styles.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/src/tslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnackBar/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/exceptions/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/qrpayment/CzechAccountDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/qrpayment/PaymentAttributesDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/qrpayment/enums/AttributeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/qrpayment/enums/NotificationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/qrpayment/enums/PaymentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/qrpayment/ConvertAccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/qrpayment/CreateQrCodeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/src/main/resources/db/migration/V1__init.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnackBar/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SnackBar/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SnackBar/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/SnackBar/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/controller/TransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnackBar/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/SnackBar/src/environments/environment.prod.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnackBar/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/SnackBar/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/lib/response.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/lib/response.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-errors/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/lib/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/lib/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/mongoose/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mongoose/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/morgan/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/morgan/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/serve-favicon/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-favicon/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/Avatar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/Avatar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/Snack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/Snack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/AvatarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/AvatarServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/utils/TransactionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/utils/TransactionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/SnackDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/model/dto/SnackDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/PdfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/PdfService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/SendMailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/SendMailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/SnackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/SnackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/PdfServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/PdfServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/SendMailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/SendMailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/SnackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/SnackServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/TransactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/service/impl/TransactionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/utils/AvatarUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/utils/AvatarUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/utils/SnackUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/java/cz/tmobile/cdcp/snackbar/backend/utils/SnackUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
-    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
+    <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,86 +236,60 @@
       <usages-collector id="statistics.php.composer.actions" />
       <usages-collector id="statistics.spring.boot.mvc.usages" />
     </session>
+    <session id="-110631108">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="1" />
+          <entry key="html" value="3" />
+          <entry key="json" value="3" />
+          <entry key="ts" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="HTML" value="3" />
+          <entry key="JSON" value="3" />
+          <entry key="TypeScript" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="Angular2LanguageService" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="68" />
+          <entry key="html" value="85" />
+          <entry key="ts" value="118" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="68" />
+          <entry key="HTML" value="85" />
+          <entry key="TypeScript" value="118" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.ts">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/app-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="131" selection-start-line="1" selection-start-column="131" selection-end-line="1" selection-end-column="131" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/transaction.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="34" column="93" selection-start-line="34" selection-start-column="93" selection-end-line="34" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/avatars/avatars.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="196" selection-start-line="1" selection-start-column="114" selection-end-line="1" selection-end-column="196" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/transaction.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
-              <folding>
-                <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+            <state relative-caret-position="105">
+              <caret line="13" column="23" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -328,8 +297,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/snack.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+            <state relative-caret-position="405">
+              <caret line="30" column="80" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="80" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -338,10 +307,73 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/transaction.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SnackBar/dist/SnackBar/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/snack.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="6" selection-start-line="8" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="84" selection-start-line="1" selection-start-column="84" selection-end-line="1" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="101" column="32" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="212" selection-start-line="24" selection-start-column="212" selection-end-line="24" selection-end-column="212" />
+            <state relative-caret-position="345">
+              <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -378,6 +410,8 @@
       <find>avatar.id</find>
       <find>transaction_date</find>
       <find>added. ID:</find>
+      <find>flex-layout</find>
+      <find>snackbar/</find>
     </findStrings>
     <replaceStrings>
       <replace>, price</replace>
@@ -393,14 +427,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/SnackBar" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SnackBar/src/app/pics/pivo.base" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/pics/caj.base" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/pics/rum.base" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/mock-avatars.ts" />
         <option value="$PROJECT_DIR$/SnackBar/pics/blank_pix.base" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/avatars/avatars.component.css" />
@@ -425,30 +456,33 @@
         <option value="$PROJECT_DIR$/SnackBar/src/styles.scss" />
         <option value="$PROJECT_DIR$/SnackBar/proxy.json" />
         <option value="$PROJECT_DIR$/SnackBar/angular.json" />
-        <option value="$PROJECT_DIR$/SnackBar/package.json" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/model/tableData.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.css" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/model/expandedTransaction.ts" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/avatars/avatars.component.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.css" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.html" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/rest-api_1.http" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/model/link.ts" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/model/avatar.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/service/transaction.service.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/model/snack.ts" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/model/upload-file.ts" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/avatars/avatars.component.html" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.html" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/service/snack.service.ts" />
-        <option value="$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.html" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/model/transaction.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/package.json" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/environments/environment.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/service/transaction.service.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/environments/environment.prod.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/model/snack.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/service/snack.service.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.html" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.css" />
+        <option value="$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.html" />
         <option value="$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.ts" />
+        <option value="$PROJECT_DIR$/SnackBar/dist/SnackBar/index.html" />
       </list>
     </option>
   </component>
@@ -587,9 +621,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -612,6 +643,13 @@
               <item name="SnackBar" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
               <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SnackBar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
+              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -628,14 +666,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="add-forms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SnackBar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
-              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="avatars" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SnackBar" type="b2602c69:ProjectViewProjectNode" />
@@ -666,33 +696,20 @@
               <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
               <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="transactions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SnackBar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
-              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SnackBar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
-              <item name="SnackBar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535543188473" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540907099185" />
     <property name="javascript.karma.karma_node_package_dir" value="" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.8.0" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
@@ -902,11 +919,16 @@
       <workItem from="1535373909382" duration="13154000" />
       <workItem from="1535466054300" duration="342000" />
       <workItem from="1535530424154" duration="9391000" />
+      <workItem from="1540827183750" duration="2941000" />
+      <workItem from="1540888011653" duration="5007000" />
+      <workItem from="1541582213057" duration="614000" />
+      <workItem from="1541596685155" duration="1532000" />
+      <workItem from="1541662389309" duration="2539000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190742000" />
+    <option name="totallyTimeSpent" value="203375000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -918,10 +940,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="57" y="-2" width="1863" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49934298" visible="true" weight="0.29637527" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49934298" visible="true" weight="0.31425425" />
       <window_info id="Structure" order="1" sideWeight="0.500657" side_tool="true" weight="0.1793249" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -930,6 +952,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="UI Designer" order="7" />
       <window_info id="Learn" order="8" />
+      <window_info id="Query Editor" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295129" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.276273" />
@@ -940,10 +963,17 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295129" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" weight="0.34994584" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946696" visible="true" weight="0.34978992" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.50053304" side_tool="true" weight="0.34994584" />
       <window_info anchor="bottom" id="REST Client" order="12" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="DB Execution Console" order="14" />
+      <window_info anchor="bottom" id="Log Manager" order="15" />
+      <window_info anchor="bottom" id="SFDX" order="16" />
+      <window_info anchor="bottom" id="Salesforce" order="17" />
+      <window_info anchor="bottom" id="Execute Anonymous" order="18" />
+      <window_info anchor="bottom" id="Run with VisualVM" order="19" />
+      <window_info anchor="bottom" id="Debug with VisualVM" order="20" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -962,7 +992,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/snackresponse.ts" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -980,13 +1009,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/pics/kafe.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/pics/kafe.base" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -994,61 +1017,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/pics/ergo_proxy.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret column="2204" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/pics/ergo_proxy.base" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/response.ts" />
-    <entry file="file://$PROJECT_DIR$/SnackBar/pics/business_clown.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="51" lean-forward="true" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/pics/bone_knight.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/pics/caj.base">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="67" lean-forward="true" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/dist/SnackBar/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/pics/business_clown.base" />
+    <entry file="file://$PROJECT_DIR$/SnackBar/pics/bone_knight.base" />
+    <entry file="file://$PROJECT_DIR$/SnackBar/pics/caj.base" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/expandedTransaction.ts" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/tableData.ts" />
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1056,9 +1031,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/pics/bacterius.base">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/pics/bacterius.base" />
     <entry file="file://$PROJECT_DIR$/Server/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
@@ -1073,17 +1046,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json" />
     <entry file="file://$PROJECT_DIR$/SnackBar/package-lock.json" />
-    <entry file="file://$PROJECT_DIR$/SnackBar/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnackBar/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1093,16 +1057,6 @@
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/environments/environment.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/environments/environment.prod.ts">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/SnackBar/src/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -1139,27 +1093,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/node_modules/@angular/router/src/router_state.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="148" column="13" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/node_modules/@angular/router/src/router_state.d.ts" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/avatar.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1174,20 +1108,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/snack.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/node_modules/typescript/lib/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="3779" column="10" selection-start-line="3779" selection-start-column="10" selection-end-line="3779" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/node_modules/typescript/lib/lib.dom.d.ts" />
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/upload-file.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1198,85 +1119,155 @@
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.ts">
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="34" column="93" selection-start-line="34" selection-start-column="93" selection-end-line="34" selection-end-column="93" />
+        <state relative-caret-position="660">
+          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/tslint.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/avatars/avatars.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="15">
           <caret line="1" column="196" selection-start-line="1" selection-start-column="114" selection-end-line="1" selection-end-column="196" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="212" selection-start-line="24" selection-start-column="212" selection-end-line="24" selection-end-column="212" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/snack.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="131" selection-start-line="1" selection-start-column="131" selection-end-line="1" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/transactions/transactions.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/transaction.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/transaction.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="45">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/environments/environment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/environments/environment.prod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/avatar.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/snack.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="30" column="80" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/model/snack.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="6" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/add-forms/add-forms.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="84" selection-start-line="1" selection-start-column="84" selection-end-line="1" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnackBar/src/app/snacks/snacks.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="235">
+          <caret line="101" column="32" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/src/app/service/transaction.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnackBar/dist/SnackBar/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>

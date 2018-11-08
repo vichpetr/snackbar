@@ -19,4 +19,6 @@ public class SnackDto extends ResourceSupport {
     private String pictype;
 
     private String pic;
+
+    private Integer count;
 }

@@ -8,6 +8,7 @@ import cz.tmobile.cdcp.snackbar.backend.repository.SnackRepository;
 import cz.tmobile.cdcp.snackbar.backend.service.AvatarService;
 import cz.tmobile.cdcp.snackbar.backend.service.SnackService;
 import cz.tmobile.cdcp.snackbar.backend.service.TransactionService;
+import cz.tmobile.cdcp.snackbar.backend.utils.SnackUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,11 +23,12 @@ public class SnackServiceImpl implements SnackService {
 
     private AvatarService avatarService;
 
+    private SnackUtils snackUtils;
 
     @Override
     public Snack findSnack(Integer id) {
         return snackRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Snack with id " + id +" not found."));
+                .orElseThrow(() -> new RuntimeException("Snack with id " + id + " not found."));
     }
 
     @Override
@@ -34,16 +36,10 @@ public class SnackServiceImpl implements SnackService {
         return snackRepository.findAll();
     }
 
-    private Snack toEntity(SnackDto dto, Integer ownerId){
+    private Snack toEntity(SnackDto dto, Integer ownerId) {
         Avatar avatar = avatarService.findAvatar(ownerId);
-
-        Snack snack = new Snack();
-        snack.setName(dto.getName());
-        snack.setPrice(dto.getPrice());
-        snack.setPic(dto.getPic());
-        snack.setPictype(dto.getPictype());
+        Snack snack = snackUtils.toEntity(dto);
         snack.setOwner(avatar);
-
         return snack;
     }
 
@@ -56,5 +52,11 @@ public class SnackServiceImpl implements SnackService {
     @Override
     public List<ExpandedTransaction> findAllTransactions(Integer id) {
         return null;
+    }
+
+    public void updateCount(Integer snackId, int count) {
+        Snack snack = this.findSnack(snackId);
+        snack.setCount(snack.getCount() + count);
+        this.snackRepository.save(snack);
     }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Avatar} from "../model/avatar";
 import {Link} from "../model/link";
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class AvatarService {
 
   getAvatars(): Promise<Avatar[]>{
     const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8'});
-    const url: String = 'http://localhost:8080/api/avatar/';
+    const url: String = environment.url + '/api/avatar/';
     return this.http.get<Avatar[]>(url.toString(),{headers: httpHeaders}).toPromise();
   }
 
@@ -27,13 +28,13 @@ export class AvatarService {
 
   findAvatar(id: number): Promise<Avatar>{
     const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8'});
-    const url: String = 'http://localhost:8080/api/avatar/' + id;
+    const url: String = environment.url + '/api/avatar/' + id;
     return this.http.get<Avatar>(url.toString(), {headers: httpHeaders}).toPromise();
   }
 
   addAvatar(name: string, email: string, pictype: string, pic: string) {
     const httpHeaders = new HttpHeaders({'Content-type': 'application/json; charset=utf-8'});
-    const url: String = 'http://localhost:8080/api/avatar';
+    const url: String = environment.url + '/api/avatar';
     return this.http.post<Avatar>(url.toString(),{name: name, email: email, pictype: pictype, pic: pic}, {headers: httpHeaders}).toPromise();
   }
 }

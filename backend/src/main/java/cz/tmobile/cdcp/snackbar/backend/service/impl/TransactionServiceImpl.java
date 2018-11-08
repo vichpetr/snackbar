@@ -5,10 +5,7 @@ import cz.tmobile.cdcp.snackbar.backend.model.Transaction;
 import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransaction;
 import cz.tmobile.cdcp.snackbar.backend.model.dto.TransactionDto;
 import cz.tmobile.cdcp.snackbar.backend.repository.TransactionRepository;
-import cz.tmobile.cdcp.snackbar.backend.service.AvatarService;
-import cz.tmobile.cdcp.snackbar.backend.service.PdfService;
-import cz.tmobile.cdcp.snackbar.backend.service.SendMailService;
-import cz.tmobile.cdcp.snackbar.backend.service.TransactionService;
+import cz.tmobile.cdcp.snackbar.backend.service.*;
 import cz.tmobile.cdcp.snackbar.backend.utils.TransactionUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +31,8 @@ public class TransactionServiceImpl implements TransactionService {
     private AvatarService avatarService;
 
     private SendMailService mailService;
+
+    private SnackService snackService;
 
     @Override
     public List<ExpandedTransaction> findTransactions(Integer id, boolean paid) {
@@ -82,9 +81,8 @@ public class TransactionServiceImpl implements TransactionService {
 
     private void prepareAndSendEmail(Avatar buyer, Map<Avatar, List<Transaction>> transactionMap) {
 
-        Path pdf = pdfService.createPdf(transactionMap, buyer);
-        log.info("pdfFileName is {}", pdf.getFileName());
-        mailService.sendMail(buyer, pdf, transactionMap);
+        List<Path> files = pdfService.createPdf(transactionMap, buyer);
+        mailService.sendMail(buyer, files, transactionMap);
     }
 
     @Override
@@ -100,7 +98,9 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction addTransaction(TransactionDto dto) {
         Transaction transaction = transactionUtils.toEntity(dto);
-        return transactionRepository.save(transaction);
+        Transaction save = transactionRepository.save(transaction);
+        snackService.updateCount(dto.getSnackId(), -1);
+        return save;
     }
 
 }

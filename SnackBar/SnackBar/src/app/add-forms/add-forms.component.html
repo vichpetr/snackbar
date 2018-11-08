@@ -21,6 +21,9 @@
       <input matInput placeholder="Price" #Price formControlName="price">
     </mat-form-field>
     <mat-form-field>
+      <input matInput placeholder="Count" #Count formControlName="count">
+    </mat-form-field>
+    <mat-form-field>
       <mat-select placeholder="Owner" #Owner formControlName="owner">
         <mat-option *ngFor="let avatar of avatars" [value]="avatar.id" [ngStyle]="{'background' : 'url(' + avatar.pic + ')', 'background-size': 'contain', 'background-repeat': 'no-repeat', 'background-position-x': 'right'}" >{{avatar.name}} </mat-option>
       </mat-select>

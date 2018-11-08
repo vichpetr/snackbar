@@ -1,5 +1,6 @@
 <div *ngIf="snacks" class="button-container">
   <button *ngFor="let snack of snacks" mat-raised-button color="primary" (click)="onSelect(snack)" [ngStyle]="{'background' : 'url(' + snack.pic + ')', 'background-size': 'cover'}">
+    <span class="snackCount">{{snack.count}}</span>
     <span class="namelabel">{{snack.name}}</span>
   </button>
 </div>

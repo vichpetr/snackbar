@@ -2,32 +2,37 @@ qr-version: 1.0
 
 spring:
   datasource:
-    url: 'jdbc:mariadb://localhost:3306/snackBar'
-    username: snackbar
-    password: snackapp
+    url: 'jdbc:mariadb://172.17.0.2:3306/snackBar'
+    username: root
+    password: password
     driver-class-name: org.mariadb.jdbc.Driver
   jpa:
+    show-sql: true
     properties:
       hibernate:
         database-platform: org.hibernate.dialect.MariaDBDialect
-        ddl-auto: validate
+        #org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+        use_sql_comments: truesnackapp
+        format_sql: true
+    generate-ddl: true
     hibernate:
       naming:
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   mail:
-    host: localhost
-#    username: any
-#    password: any
+    host: mail.vas-hosting.cz
+    username: snackbar@petrvich.eu
+    password: UH5hb7ei8eIn7tCH
     protocol: smtp
     properties:
       mail:
         transport:
-          protocol: 25
-#        smtp:
-#          auth: true
-#          ssl:
-#            enable: true
+          protocol: 465
+        smtp:
+          auth: true
+          ssl:
+            enable: true
 snackapp:
   dateTimeFormat: 'dd. MM. YYYY HH:mm:ss'
   mail:

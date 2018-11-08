@@ -47,7 +47,7 @@ export class AddFormsComponent implements OnInit {
 
   addSnack(){
     const params: Snack = this.snackform.getData();
-    this.snackService.addSnack(params.name.toString(), params.price, params.owner, this.file.imageType,this.file.base64Image).then(result => {
+    this.snackService.addSnack(params.name.toString(), params.price, params.count, params.owner, this.file.imageType,this.file.base64Image).then(result => {
       this.snackService.getSnacks().then(result =>{
         this.snackService.snacks = result;
       });
@@ -62,6 +62,7 @@ export class AddFormsComponent implements OnInit {
     this.snackform = new ValidationManager({
         'name': 'required|alphaNumSpace',
         'price': 'required|number',
+        'count': 'required|number',
         'owner': 'required|number'
     });
    }

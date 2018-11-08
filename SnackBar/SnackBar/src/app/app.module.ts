@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from "@angular/flex-layout";
-
 
 import { AppComponent } from './app.component';
 import { AvatarsComponent } from './avatars/avatars.component';
@@ -17,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AddFormsComponent } from './add-forms/add-forms.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TransactionsComponent } from './transactions/transactions.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -30,7 +29,6 @@ import { TransactionsComponent } from './transactions/transactions.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     MatSnackBarModule,
     MatButtonModule,
     AppRoutingModule,
@@ -46,7 +44,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
     MatSortModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

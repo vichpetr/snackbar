@@ -9,5 +9,5 @@ import java.util.Map;
 
 public interface PdfService {
 
-    Path createPdf(Map<Avatar, List<Transaction>> transactionMap, Avatar avatar);
+    List<Path> createPdf(Map<Avatar, List<Transaction>> transactionMap, Avatar avatar);
 }

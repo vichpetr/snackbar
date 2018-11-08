@@ -19,8 +19,8 @@ public class SnackUtils implements IConvertUtils<SnackDto, Snack> {
                 .entityId(entity.getId())
                 .name(entity.getName())
                 .price(entity.getPrice())
-                .pictype(entity.getPictype())
                 .pic(entity.getPic())
+                .count(entity.getCount())
                 .build();
 
         Link owner = linkTo(AvatarController.class).slash(entity.getOwner().getId()).withRel("owner");
@@ -35,6 +35,12 @@ public class SnackUtils implements IConvertUtils<SnackDto, Snack> {
 
     @Override
     public Snack toEntity(SnackDto dto) {
-        return null;
+        Snack snack = new Snack();
+        snack.setName(dto.getName());
+        snack.setPrice(dto.getPrice());
+        snack.setPic(dto.getPic());
+        snack.setCount(dto.getCount());
+
+        return snack;
     }
 }
