@@ -28,13 +28,12 @@ public class TransactionUtils implements IConvertUtils<TransactionDto, Transacti
 
     @Override
     public TransactionDto toDto(Transaction entity) {
-        TransactionDto dto = TransactionDto.builder()
-                .entityId(entity.getId())
-                .paid(entity.isPaid())
-                .transactionDate(entity.getTransactionDate())
-                .buyerId(entity.getBuyer().getId())
-                .snackId(entity.getSnack().getId())
-                .build();
+        TransactionDto dto = new TransactionDto();
+        dto.setEntityId(entity.getId());
+        dto.setPaid(entity.isPaid());
+        dto.setTransactionDate(entity.getTransactionDate());
+        dto.setBuyerId(entity.getBuyer().getId());
+        dto.setSnackId(entity.getSnack().getId());
 
         Link buyer = linkTo(TransactionController.class).slash(entity.getBuyer().getId()).withRel("buyer");
         Link snack = linkTo(TransactionController.class).slash(entity.getId()).slash("snack").withRel("snack");
