@@ -12,8 +12,8 @@ build:
   stage: build
   script:
   - cd /builds/CDCP_TelcoDevel/snackbar/SnackBar/SnackBar && npm run ng build --prod
-  - cd /builds/CDCP_TelcoDevel/snackbar/backend && mvn package
+#  - cd /builds/CDCP_TelcoDevel/snackbar/backend && mvn package
   artifacts:
     paths:
     - /builds/CDCP_TelcoDevel/snackbar/SnackBar/SnackBar/dist/SnackBar
-    - /builds/CDCP_TelcoDevel/snackbar/backend/target/backend-*.jar
+#    - /builds/CDCP_TelcoDevel/snackbar/backend/target/backend-*.jar
