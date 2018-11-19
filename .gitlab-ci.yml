@@ -6,12 +6,12 @@ cache:
   - node_modules/
 
 before_script:
-- cd SnackBar/SnackBar && npm install
+- cd ~/SnackBar/SnackBar && npm install
 
 build:
   stage: build
   script:
-  - cd SnackBar/SnackBar && npm run ng build --prod
+  - cd ~/SnackBar/SnackBar && npm run ng build --prod
   artifacts:
     paths:
-    - SnackBar/SnackBar/dist/SnackBar
+    - /SnackBar/SnackBar/dist/SnackBar
