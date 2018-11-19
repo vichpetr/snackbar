@@ -1,8 +1,10 @@
 package cz.tmobile.cdcp.snackbar.backend.service.impl;
 
 import cz.tmobile.cdcp.snackbar.backend.model.Avatar;
+import cz.tmobile.cdcp.snackbar.backend.model.Snack;
 import cz.tmobile.cdcp.snackbar.backend.model.Transaction;
 import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransaction;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransactionList;
 import cz.tmobile.cdcp.snackbar.backend.model.dto.TransactionDto;
 import cz.tmobile.cdcp.snackbar.backend.repository.TransactionRepository;
 import cz.tmobile.cdcp.snackbar.backend.service.*;
@@ -35,21 +37,41 @@ public class TransactionServiceImpl implements TransactionService {
     private SnackService snackService;
 
     @Override
-    public List<ExpandedTransaction> findTransactions(Integer id, boolean paid) {
+    public ExpandedTransactionList findTransactions(Integer id, boolean paid) {
         Avatar avatar = this.avatarService.findAvatar(id);
         List<Transaction> transactions;
+        Integer sumUnpaid;
+        int sumAll;
         if (paid) {
             transactions = findTransactionsByBuyer(avatar);
+            sumAll = getSum(transactions);
+            sumUnpaid = this.transactionRepository.getSumOfUnpaidTransactions(avatar, false);
+            if(sumUnpaid == null) {
+                sumUnpaid = 0;
+            }
         } else {
             transactions = this.transactionRepository.findByBuyerAndPaid(avatar, false);
+            sumAll = this.transactionRepository.getSumOfAllTransactions(avatar);
+            sumUnpaid = getSum(transactions);
         }
-        return transactions.stream()
+
+        List<ExpandedTransaction> extendedTransactions = transactions.stream()
                 .map(ExpandedTransaction::new)
                 .collect(Collectors.toList());
+
+        return ExpandedTransactionList.builder()
+                .transactions(extendedTransactions)
+                .totalAll(sumAll)
+                .totalUnpaid(sumUnpaid)
+                .build();
+    }
+
+    private int getSum(List<Transaction> transactions) {
+        return transactions.stream().map(Transaction::getSnack).mapToInt(Snack::getPrice).sum();
     }
 
     @Modifying
-    public List<ExpandedTransaction> payTransactions(Integer buyerId, List<Integer> ids, boolean paid) {
+    public ExpandedTransactionList payTransactions(Integer buyerId, List<Integer> ids, boolean paid) {
         Map<Avatar, List<Transaction>> paidTransactions = new HashMap<>();
         Avatar buyer = this.avatarService.findAvatar(buyerId);
         for (Integer id : ids) {

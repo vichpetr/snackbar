@@ -1,7 +1,0 @@
-{
-  "timestamp": "2018-08-28T06:02:49.226+0000",
-  "path": "/api/snack",
-  "status": 400,
-  "error": "Bad Request",
-  "message": "Failed to read HTTP message"
-}

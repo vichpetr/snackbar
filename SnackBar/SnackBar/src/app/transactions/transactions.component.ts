@@ -10,6 +10,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
 import {SelectionModel} from "@angular/cdk/collections";
 import {MatSnackBar} from "@angular/material";
 import ExpandedTransaction = TRANSACTION.ExpandedTransaction;
+import {TransactionList} from "../model/transactionList";
 
 @Component({
   selector: 'app-transactions',
@@ -23,6 +24,8 @@ export class TransactionsComponent implements OnInit {
   dataSource: MatTableDataSource<TRANSACTION.ExpandedTransaction>;
   selection = new SelectionModel<TRANSACTION.ExpandedTransaction>(true, []);
   paidVisible: boolean = false;
+  total: number;
+  totalUnpaid: number;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -44,12 +47,14 @@ export class TransactionsComponent implements OnInit {
   private reloadTransactions() {
     this.transactionService.getTransactions(this.avatar.entityId, this.paidVisible).then(result => {
       this.transactionService.transactions = result;
+      this.total = this.transactionService.transactions.totalAll;
+      this.totalUnpaid = this.transactionService.transactions.totalUnpaid;
       this.loadTransactions();
     });
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.transactionService.transactions);
+    this.dataSource = new MatTableDataSource(this.transactionService.transactions.transactions);
   }
 
   changePaymentVisible(){
@@ -57,7 +62,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   loadTransactions(){
-    this.dataSource = new MatTableDataSource(this.transactionService.transactions);
+    this.dataSource = new MatTableDataSource(this.transactionService.transactions.transactions);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource.sortingDataAccessor = (item, property) => {

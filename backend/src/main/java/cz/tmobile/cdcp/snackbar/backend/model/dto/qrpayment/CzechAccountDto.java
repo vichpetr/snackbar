@@ -12,4 +12,12 @@ public class CzechAccountDto {
     private String number;
     @NotNull
     private String bankCode;
+
+    @Override
+    public String toString() {
+        if (prefix == null) {
+            return String.format("%s/%s", this.number, this.bankCode);
+        }
+        return String.format("%s-%s/%s", this.prefix, this.number, this.bankCode);
+    }
 }

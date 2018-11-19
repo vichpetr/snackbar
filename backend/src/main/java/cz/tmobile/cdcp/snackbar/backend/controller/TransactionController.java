@@ -3,6 +3,7 @@ package cz.tmobile.cdcp.snackbar.backend.controller;
 import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransaction;
 import cz.tmobile.cdcp.snackbar.backend.model.PaymentRequest;
 import cz.tmobile.cdcp.snackbar.backend.model.Search;
+import cz.tmobile.cdcp.snackbar.backend.model.dto.ExpandedTransactionList;
 import cz.tmobile.cdcp.snackbar.backend.model.dto.TransactionDto;
 import cz.tmobile.cdcp.snackbar.backend.service.TransactionService;
 import cz.tmobile.cdcp.snackbar.backend.model.Transaction;
@@ -28,7 +29,7 @@ public class TransactionController {
 
     @CrossOrigin
     @GetMapping(path = "/my")
-    public List<ExpandedTransaction> findTransaction(@RequestHeader("userId") Integer userId, @RequestParam(value = "paid", defaultValue = "false") boolean paid) {
+    public ExpandedTransactionList findTransaction(@RequestHeader("userId") Integer userId, @RequestParam(value = "paid", defaultValue = "false") boolean paid) {
         return transactionService.findTransactions(userId, paid);
     }
 
@@ -49,7 +50,7 @@ public class TransactionController {
 
     @CrossOrigin
     @PostMapping("/pay")
-    public List<ExpandedTransaction> payTransactions(@RequestBody PaymentRequest paymentRequest, @RequestParam(value = "paid", defaultValue = "false") boolean paid) {
+    public ExpandedTransactionList payTransactions(@RequestBody PaymentRequest paymentRequest, @RequestParam(value = "paid", defaultValue = "false") boolean paid) {
         return transactionService.payTransactions(paymentRequest.getBuyer(), paymentRequest.getIds(), paid);
     }
 }

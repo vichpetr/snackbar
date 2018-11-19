@@ -16,8 +16,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -33,8 +38,12 @@ public class CreateQrCodeService {
     @Value("${qr-version}")
     private String version;
 
+    private final ConvertAccountService convertService;
+
     @Autowired
-    private ConvertAccountService convertService;
+    public CreateQrCodeService(ConvertAccountService convertService) {
+        this.convertService = convertService;
+    }
 
     private DecimalFormat df = new DecimalFormat("#.00");
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMMdd");
@@ -51,12 +60,12 @@ public class CreateQrCodeService {
         validateAndAdd(stringList, AttributeType.AM, df.format(dto.getAmount()));
         validateAndAdd(stringList, AttributeType.CC, "CZK");
         validateAndAdd(stringList, AttributeType.DT, dto.getPaymentDate().format(formatter));
-        if(StringUtils.isNotBlank(dto.getMessage())){
+        if (StringUtils.isNotBlank(dto.getMessage())) {
             validateAndAdd(stringList, AttributeType.MSG, dto.getMessage());
         }
 
         String qrCodeText = String.join("*", stringList);
-        return generateQRCodeImage(qrCodeText, dto.getWidth(), dto.getHeight(), dto.getImageType());
+        return generateQRCodeImage(qrCodeText, dto);
     }
 
     private void validateAndAdd(List<String> stringList, AttributeType type, String format) {
@@ -106,12 +115,33 @@ public class CreateQrCodeService {
         return acc.getValue().concat(":").concat(value);
     }
 
-    private byte[] generateQRCodeImage(String text, int width, int height, String format) throws WriterException, IOException {
+    private byte[] generateQRCodeImage(String text, PaymentAttributesDto dto) throws WriterException, IOException {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
+        BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, dto.getWidth(), dto.getHeight());
 
         ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
-        MatrixToImageWriter.writeToStream(bitMatrix, format, pngOutputStream);
+        MatrixToImageWriter.writeToStream(bitMatrix, dto.getImageType(), pngOutputStream);
+
+        InputStream in = new ByteArrayInputStream(pngOutputStream.toByteArray());
+        BufferedImage image = ImageIO.read(in);
+
+        Graphics2D graphics = (Graphics2D) image.getGraphics();
+        graphics.setStroke(new BasicStroke(3));
+        graphics.setColor(Color.BLACK);
+        graphics.drawRect(10, 10, image.getWidth() - 20, image.getHeight() - 20);
+
+        String drawText = dto.getAccount().toString();
+        FontMetrics metrics = graphics.getFontMetrics(graphics.getFont());
+        int x = (image.getWidth() - metrics.stringWidth(drawText)) / 2 + metrics.getAscent();
+        int y = image.getHeight() - 5;
+        graphics.setColor(Color.WHITE);
+        graphics.drawLine(x - 5, y - 5, x + 5 + metrics.stringWidth(drawText) + metrics.getAscent(), y - 5);
+        graphics.setColor(Color.BLACK);
+        graphics.drawString(drawText, x, y);
+
+        pngOutputStream = new ByteArrayOutputStream();
+        ImageIO.write(image, "png", pngOutputStream);
+
         return pngOutputStream.toByteArray();
     }
 }
