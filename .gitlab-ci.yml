@@ -6,12 +6,14 @@ cache:
   - node_modules/
 
 before_script:
-- cd ~/SnackBar/SnackBar && npm install
+- cd /builds/CDCP_TelcoDevel/snackbar/SnackBar/SnackBar && npm install
 
 build:
   stage: build
   script:
-  - cd ~/SnackBar/SnackBar && npm run ng build --prod
+  - cd /builds/CDCP_TelcoDevel/snackbar/SnackBar/SnackBar && npm run ng build --prod
+  - cd /builds/CDCP_TelcoDevel/snackbar/backend && mvn package
   artifacts:
     paths:
-    - /SnackBar/SnackBar/dist/SnackBar
+    - /builds/CDCP_TelcoDevel/snackbar/SnackBar/SnackBar/dist/SnackBar
+    - /builds/CDCP_TelcoDevel/snackbar/backend/target/backend-*.jar
