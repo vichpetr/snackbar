@@ -16,8 +16,8 @@
             "outputPath": "dist/SnackBar",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "baseHref": "/snackbar/",
-            "deployUrl": "/snackbar/",
+            "baseHref": "/",
+            "deployUrl": "/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [

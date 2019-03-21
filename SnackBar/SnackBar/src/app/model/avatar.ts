@@ -3,5 +3,4 @@ export interface Avatar {
   name: string;
   email: string;
   pic: string;
-  pictype: string;
 }

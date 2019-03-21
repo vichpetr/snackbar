@@ -11,6 +11,7 @@ import {Location} from '@angular/common';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from "@angular/router";
 import {Link} from "../model/link";
+import {environment} from "../../environments/environment";
 
 
 @Component({
@@ -50,7 +51,8 @@ export class SnacksComponent implements OnInit {
     }
     this.snackService.selectedSnack = snack;
 
-    const link = snack.links.find(f => f.rel === 'owner');
+    let link = snack.links.find(f => f.rel === 'owner');
+    link.href = link.href.replace(environment.localAddress, environment.publicAddress);
     this.avatarService.getAvatar(link).then(result => {
       this.placeOrder(result);
     });

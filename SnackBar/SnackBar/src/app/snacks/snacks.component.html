@@ -1,8 +1,14 @@
 <div *ngIf="snacks" class="button-container">
-  <button *ngFor="let snack of snacks" mat-raised-button color="primary" (click)="onSelect(snack)" [ngStyle]="{'background' : 'url(' + snack.pic + ')', 'background-size': 'cover'}">
-    <span class="snackCount">{{snack.count}}</span>
-    <span class="namelabel">{{snack.name}}</span>
-  </button>
+  <ng-container *ngFor="let snack of snacks">
+    <button *ngIf="snack.count > 0" mat-raised-button color="primary" (click)="onSelect(snack)"
+            [ngStyle]="{'background' : 'url(' + snack.pic + ')', 'background-size': 'cover'}">
+      <span class="snackCount">{{snack.count}}</span>
+      <span class="snackCount">{{snack.price}} Kč</span>
+      <span class="namelabel">{{snack.name}}</span>
+    </button>
+  </ng-container>
 </div>
-<button *ngIf="selectedAvatar" mat-raised-button color="secondary" routerLink="/transactions/{{selectedAvatar.entityId}}" >Transactions</button>
-<button mat-raised-button color="secondary" (click)="goBack()" >Cancel</button>
+<button *ngIf="selectedAvatar" mat-raised-button color="secondary"
+        routerLink="/transactions/{{selectedAvatar.entityId}}">Transactions
+</button>
+<button mat-raised-button color="secondary" (click)="goBack()">Cancel</button>

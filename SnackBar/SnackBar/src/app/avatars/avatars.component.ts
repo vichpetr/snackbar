@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Avatar } from '../model/avatar';
-
 import { AvatarService } from '../service/avatar.service';
 
 @Component({
@@ -28,9 +27,6 @@ export class AvatarsComponent implements OnInit {
       this.avatarService.avatars = result;
       this.avatars = this.avatarService.avatars;
     });
-
-
-    // this.avatarService.getAllAvatars().subscribe(result => this.avatars = result['data']);
   }
 
 

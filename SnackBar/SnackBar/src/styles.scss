@@ -55,8 +55,8 @@ body {
   height: 40px;
   font-size: xx-large;
   font-weight: bold;
-  position: relative;
   padding-top: 5px;
-  top: 90px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
-

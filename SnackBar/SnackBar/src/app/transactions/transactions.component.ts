@@ -46,15 +46,16 @@ export class TransactionsComponent implements OnInit {
 
   private reloadTransactions() {
     this.transactionService.getTransactions(this.avatar.entityId, this.paidVisible).then(result => {
-      this.transactionService.transactions = result;
-      this.total = this.transactionService.transactions.totalAll;
-      this.totalUnpaid = this.transactionService.transactions.totalUnpaid;
+      this.transactionService.transactionList = result;
+      this.transactionService.transactions = result.transactions;
+      this.total = this.transactionService.transactionList.totalAll;
+      this.totalUnpaid = this.transactionService.transactionList.totalUnpaid;
       this.loadTransactions();
     });
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.transactionService.transactions.transactions);
+    this.dataSource = new MatTableDataSource(this.transactionService.transactions);
   }
 
   changePaymentVisible(){
@@ -62,7 +63,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   loadTransactions(){
-    this.dataSource = new MatTableDataSource(this.transactionService.transactions.transactions);
+    this.dataSource = new MatTableDataSource(this.transactionService.transactions);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource.sortingDataAccessor = (item, property) => {
@@ -107,7 +108,8 @@ export class TransactionsComponent implements OnInit {
     });
 
     this.transactionService.payTransactions(this.avatar.entityId, ids).then(result => {
-      this.transactionService.transactions = result;
+      this.transactionService.transactionList = result;
+      this.transactionService.transactions = result.transactions;
       this.snackBar.open("You will pay for " + ids.length + " transactions", 'Ok', {duration: 5000, panelClass: ['snackbar']});
       this.selection.clear();
       this.loadTransactions();

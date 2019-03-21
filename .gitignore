@@ -2,3 +2,4 @@ SnackBar/SnackBar/pics/
 **/out/*
 **/.idea/
 **/node_modules/
+SnackBar/SnackBar/package-lock\.json

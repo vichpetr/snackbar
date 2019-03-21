@@ -16,6 +16,7 @@ import { AddFormsComponent } from './add-forms/add-forms.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TransactionsComponent } from './transactions/transactions.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FontAwesomeModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

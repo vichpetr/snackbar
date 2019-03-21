@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:8080'
+  url: 'http://localhost:8080',
+  localAddress: '172.16.9.19:8080',
+  publicAddress: 'api.snackbar.petrvich.eu'
 };
 
 /*

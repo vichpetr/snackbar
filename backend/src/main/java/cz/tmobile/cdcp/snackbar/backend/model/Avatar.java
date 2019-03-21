@@ -27,4 +27,10 @@ public class Avatar {
 
     @Column(name = "BANK_ACCOUNT")
     private String bankAccount;
+
+    @Transient
+    private int total;
+
+    @Transient
+    private int unPaid;
 }
